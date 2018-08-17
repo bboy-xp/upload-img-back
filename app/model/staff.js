@@ -3,6 +3,7 @@ module.exports = app => {
   const StaffSchema = new mongoose.Schema({
     adminId: { type: String },
     staffId: { type: String },
+    id: { type: Number },
     password: { type: String },
   }, {
       timestamps: true,

@@ -62,14 +62,25 @@ class HomeController extends Controller {
 
     const hasStaff = await Staff.find({staffId: staffId});
     if(hasStaff.length == 0) {
-      console.log("没有用户可以保存");
-      // const staff = new Staff({
-      //   adminId: adminId,
-      //   staffId: staffId,
-      //   password: password
-      // })
-      // staff.save();
-      // ctx.body = "success";
+      console.log("没有用户，可以保存");
+      const staff = new Staff({
+        adminId: adminId,
+        staffId: staffId,
+        password: password
+      })
+      staff.save();
+
+      const staffData = new StaffData({
+        adminId: adminId,
+        staffId: staffId,
+        id: id,
+        fontUrl: fontUrl,
+        backUrl: backUrl,
+        QRcodeUrl: QRcodeUrl,
+        count: count
+      })
+      staffData.save();
+      ctx.body = "success";
     }else {
       ctx.body = "exist"
     }
