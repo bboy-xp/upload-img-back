@@ -4,9 +4,11 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "bluebird": "^3.5.1",
     "egg": "^2.2.1",
     "egg-mongoose": "^3.1.0",
-    "egg-scripts": "^2.5.0"
+    "egg-scripts": "^2.5.0",
+    "qiniu": "^7.2.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
