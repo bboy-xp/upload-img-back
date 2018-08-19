@@ -2,10 +2,13 @@
 
 const Controller = require('egg').Controller;
 var qiniu = require("qiniu");
+const { readFileSync } = require('fs');
+const { resolve } = require('path');
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.body = 'hi, egg';
+    const data = readFileSync(resolve(__dirname, '../public/index.html'), 'utf8');
+    this.ctx.body = data;
   }
   saveAdmin() {
     const ctx = this.ctx;
@@ -55,8 +58,8 @@ class HomeController extends Controller {
     const staffId = ctx.request.body.staffId;
     const password = ctx.request.body.password;
 
-    const fontUrl = "http://localhost:8080/#/font?id=" + id;
-    const backUrl = "http://localhost:8080/#/staffLogin?id=" + id;
+    const fontUrl = "http://sxp.topsxp.top:7003/#/font?id=" + id;
+    const backUrl = "http://sxp.topsxp.top:7003/#/staffLogin?id=" + id;
     const QRcodeUrl = "";
     const count = 0;
 
