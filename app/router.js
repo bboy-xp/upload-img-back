@@ -17,5 +17,6 @@ module.exports = app => {
   router.get('/getUpToken', controller.home.getUpToken);
   router.post('/updateCount', controller.home.updateCount);
   router.post('/getEditStaff', controller.home.getEditStaff);
+  router.post('/updateStaff', controller.home.updateStaff);
 };
 

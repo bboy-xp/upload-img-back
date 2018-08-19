@@ -116,8 +116,8 @@ class HomeController extends Controller {
     const staffId = data.account;
     const password = data.password;
     const targetStaff = await Staff.find({"staffId": staffId});
-    console.log(id,password);
-    console.log(targetStaff[0].password,targetStaff[0].id)
+    // console.log(id,password);
+    // console.log(targetStaff[0].password,targetStaff[0].id)
     if (targetStaff.length !== 0) {
       if (targetStaff[0].password == password && targetStaff[0].id == id) {
         ctx.body = "success";
@@ -181,24 +181,24 @@ class HomeController extends Controller {
   }
   async getEditStaff() {
     const ctx = this.ctx;
-    // const StaffData = ctx.model.StaffData;
+    const Staff = ctx.model.Staff;
+    const data = ctx.request.body;
+    const id = data.id;
+    const getEditStaff = await Staff.findOne({"id": id});
+
+    ctx.body = getEditStaff;
+  }
+  async updateStaff() {
+    const ctx = this.ctx;
     const Staff = ctx.model.Staff;
 
     const data = ctx.request.body;
     const id = data.id;
-    // const staffId = data.staffId;
-    // const password = data.password;
-    // await StaffData.update({"id": id}, {
-    //   "staffId": staffId,
-    //   "password": password
-    // });
-    // await Staff.update({"id": id}, {
-    //   "staffId": staffId,
-    // });
-
-    const getEditStaff = await Staff.findOne({"id": id});
-
-    ctx.body = getEditStaff;
+    const password = data.password;
+    await Staff.update({"id": id}, {
+      password: password
+    });
+    ctx.body = "success";
   }
 }
 
