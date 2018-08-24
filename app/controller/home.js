@@ -58,8 +58,8 @@ class HomeController extends Controller {
     const staffId = ctx.request.body.staffId;
     const password = ctx.request.body.password;
 
-    const fontUrl = "http://sxp.topsxp.top:7003/#/font?id=" + id;
-    const backUrl = "http://sxp.topsxp.top:7003/#/staffLogin?id=" + id;
+    const fontUrl = "http://www.jnmum.cn:7003/#/font?id=" + id;
+    const backUrl = "http://www.jnmum.cn:7003/#/staffLogin?id=" + id;
     const QRcodeUrl = "";
     const count = 0;
 
